@@ -39,8 +39,16 @@ def layout(*args):
     )(
         body
     )
+    st.markdown(""" <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style> """, unsafe_allow_html=True)
+    #create sidebar with options
+    sidebar = st.sidebar.selectbox('Select an Option',['Covid vaccine', 'Enable Notification ','Book Slot'])
 
-    st.markdown(style, unsafe_allow_html=True)
+
+
+    #st.markdown(style, unsafe_allow_html=True)
 
     for arg in args:
         if isinstance(arg, str):
@@ -57,7 +65,7 @@ def footer(inp_views):
         "Page Visits - ", str(inp_views),
         br(),
         "Created by ",
-        link("https://github.com/bhattbhavesh91", "Bhavesh Bhatt"),
+        link("hhttps://github.com/abhishekcse01", "Abhishek Kumar"),
         "     ",
         
     ]

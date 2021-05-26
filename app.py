@@ -14,7 +14,7 @@ from footer_utils import image, link, layout, footer
 st.set_page_config(layout='wide',
                    initial_sidebar_state='collapsed',
                    page_icon="https://www.cowin.gov.in/favicon.ico",
-                   page_title="CoWIN Vaccination Slot Availability")
+                   page_title="CoWIN Vaccination")
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_mapping():
@@ -49,7 +49,7 @@ rename_mapping = {
     }
 
 st.title('CoWIN Vaccination Slot Availability')
-st.info('The CoWIN APIs are geo-fenced so sometimes you may not see an output! Please try after sometime ')
+st.info('The CoWIN APIs are geo-fenced so sometimes you may not see an output!')
 
 valid_states = list(np.unique(mapping_df["state_name"].values))
 
@@ -145,36 +145,6 @@ if (final_df is not None) and (len(final_df)):
     st.table(table)
 else:
     st.error("Unable to fetch data currently, please try after sometime")
-
-# footer="""<style>
-# a:link , a:visited{
-# color: blue;
-# background-color: transparent;
-# text-decoration: underline;
-# }
-
-# a:hover,  a:active {
-# color: red;
-# background-color: transparent;
-# text-decoration: underline;
-# }
-
-# .footer {
-# position: fixed;
-# left: 0;
-# bottom: 0;
-# width: 100%;
-# background-color: white;
-# color: black;
-# text-align: center;
-# }
-# </style>
-# <div class="footer">
-# <p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://github.com/bhattbhavesh91" target="_blank">Bhavesh Bhatt</a></p>
-# </div>
-# """
-# st.markdown(footer,unsafe_allow_html=True)
-# st.markdown("_- Bhavesh Bhatt_")
 
 pageviews=Pageviews()
 pageviews.append('dummy')
